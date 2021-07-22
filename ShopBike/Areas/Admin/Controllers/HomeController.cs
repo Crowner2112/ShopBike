@@ -13,17 +13,5 @@ namespace ShopBike.Areas.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Views_Admin()
-        {
-            return View();
-        }
-        public ActionResult Edit_Admin()
-        {
-            return View();
-        }
-        public ActionResult Login()
-        {
-            return View();
-        }
     }
 }
