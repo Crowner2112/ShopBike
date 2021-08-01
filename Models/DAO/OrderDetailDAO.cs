@@ -19,8 +19,17 @@ namespace Models.DAO
         {
             try
             {
-                db.OrderDetails.Add(entity);
-                db.SaveChanges();
+                var item = GetListODByODIdAndPDId(entity.OrderID, entity.ProductID);
+                if (item != null)
+                {
+                    item.Quantity += entity.Quantity;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    db.OrderDetails.Add(entity);
+                    db.SaveChanges();
+                }
                 return true;
             }
             catch (Exception)
@@ -42,27 +51,27 @@ namespace Models.DAO
                 return false;
             }
         }
-
-        public IEnumerable<OrderDetail> GetListODById(int id)
+        public OrderDetail GetListODByODIdAndPDId(int orderId, int productId)
         {
-            return db.OrderDetails.Where(x => x.OrderID == id);
+            return db.OrderDetails.FirstOrDefault(x => x.OrderID == orderId && x.ProductID == productId);
+        }
+        public IEnumerable<OrderDetail> ListAllPaging(int orderId, int page, int pageSize)
+        {
+            IQueryable<OrderDetail> model = db.OrderDetails;
+            model = model.Where(x => x.OrderID == orderId);
+            return model.OrderBy(x => x.OrderID).ToPagedList(page, pageSize);
         }
 
         public IEnumerable<OrderDetail> ListAllPaging(string searchString, int page, int pageSize)
         {
-            IQueryable<OrderDetail> model = db.OrderDetails;
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                model = model.Where(x => x.ProductID == Int32.Parse(searchString));
-            }
-            return model.OrderBy(x => x.OrderID).ToPagedList(page, pageSize);
+            throw new NotImplementedException();
         }
 
         public bool Update(OrderDetail entity)
         {
             try
             {
-                var oldItem = db.OrderDetails.Where(x => x.OrderID == entity.OrderID && x.ProductID == entity.ProductID).FirstOrDefault();
+                var oldItem = GetListODByODIdAndPDId(entity.OrderID, entity.ProductID);
                 oldItem.Quantity = entity.Quantity;
                 db.SaveChanges();
                 return true;

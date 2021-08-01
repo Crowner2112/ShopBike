@@ -65,7 +65,7 @@ namespace Models.DAO
                 var oldItem = db.Accounts.Find(entity.ID);
                 oldItem.FullName = entity.FullName;
                 oldItem.Email = entity.Email;
-                oldItem.DOB = entity.DOB;
+                oldItem.PhoneNumber = entity.PhoneNumber;
                 oldItem.Password = entity.Password;
                 oldItem.Address = entity.Address;
                 oldItem.Role = entity.Role;
@@ -76,6 +76,30 @@ namespace Models.DAO
             {
                 return false;
             }
+        }
+        public int Login(string email, string passWord)
+        {
+            var result = db.Accounts.SingleOrDefault(x => x.Email == email);
+            if (result == null)
+            {
+                return 0; //wrong email
+            }
+            else
+            {
+                if (result.Password == passWord)
+                {
+                    if (result.Role == 1) return 1; //admin
+                    else return -2; //customer
+                }
+                else
+                {
+                    return -1; //wrong password
+                }
+            }
+        }
+        public Account GetByEmail(string email)
+        {
+            return db.Accounts.SingleOrDefault(x => x.Email == email);
         }
     }
 }
