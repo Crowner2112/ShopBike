@@ -28,7 +28,7 @@ namespace Models.EF
         public string Address { get; set; }
 
         public int Total { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? CreatedDate { get; set; }
 
         public int Status { get; set; }

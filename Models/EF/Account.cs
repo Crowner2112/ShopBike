@@ -19,13 +19,10 @@ namespace Models.EF
         [StringLength(30)]
         public string Email { get; set; }
 
-        public DateTime? DOB { get; set; }
-
         [StringLength(30)]
         public string Address { get; set; }
 
         [Required]
-        [StringLength(20)]
         public string Password { get; set; }
 
         [StringLength(20)]
