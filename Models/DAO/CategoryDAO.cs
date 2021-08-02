@@ -59,6 +59,10 @@ namespace Models.DAO
             return model.OrderBy(x => x.ID).ToPagedList(page, pageSize);
         }
 
+        public IEnumerable<Category> GetAll()
+        {
+            return db.Categories.ToList();
+        }
         public bool Update(Category entity)
         {
             try
