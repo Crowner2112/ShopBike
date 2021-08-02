@@ -60,9 +60,10 @@ else if (item.Status == 1)
             </tbody>
         </table>
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @ViewBag.searchString }), new PagedListRenderOptions
-        {
-            LiElementClasses = new string[] { },
-        })
+   {
+       UlElementClasses = new string[] { "paged_list_ul" },
+       LiElementClasses = new string[] { "paged_list_li" },
+   })
     </div>
 </div>
 

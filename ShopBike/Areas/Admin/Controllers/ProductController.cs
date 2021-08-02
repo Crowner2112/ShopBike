@@ -12,6 +12,7 @@ namespace ShopBike.Areas.Admin.Controllers
     public class ProductController : BaseController
     {
         private ProductDAO dao = new ProductDAO();
+        private readonly CategoryDAO cateDao = new CategoryDAO();
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var model = dao.ListAllPaging(searchString, page, pageSize);
@@ -20,6 +21,8 @@ namespace ShopBike.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var selectList = new SelectList(cateDao.GetAll(),"ID","Name",1);
+            ViewData["Categories"] = selectList;
             return View();
         }
         public ActionResult Edit(int id)
