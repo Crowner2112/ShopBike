@@ -1,10 +1,6 @@
 ﻿using Models.DAO;
 using Models.EF;
 using ShopPhone.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopBike.Areas.Admin.Controllers
@@ -16,6 +12,7 @@ namespace ShopBike.Areas.Admin.Controllers
             var model = new Account();
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(Account account)

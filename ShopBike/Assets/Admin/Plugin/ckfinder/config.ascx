@@ -167,5 +167,4 @@
         type.AllowedExtensions = new string[] { "swf", "flv" };
         type.DeniedExtensions = new string[] { };
     }
-
 </script>

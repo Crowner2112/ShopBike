@@ -1,5 +1,4 @@
 window.addEventListener("load", event => {
-
     // Expand Left Side
     var icon = document.querySelector('.left__icon'),
         left = document.querySelector('.left');

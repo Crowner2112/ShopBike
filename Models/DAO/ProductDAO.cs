@@ -3,18 +3,18 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.DAO
 {
     public class ProductDAO : IRepository<Product>
     {
-        ShopBikeDbContext db = null;
+        private ShopBikeDbContext db = null;
+
         public ProductDAO()
         {
             db = new ShopBikeDbContext();
         }
+
         public bool Create(Product entity)
         {
             try
@@ -76,6 +76,7 @@ namespace Models.DAO
                 return false;
             }
         }
+
         public IEnumerable<Product> GetAll()
         {
             return db.Products.ToList();

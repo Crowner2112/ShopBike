@@ -1,10 +1,6 @@
 ﻿using Models.DAO;
 using Models.EF;
 using ShopPhone.Areas.Admin.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopBike.Areas.Admin.Controllers
@@ -12,21 +8,25 @@ namespace ShopBike.Areas.Admin.Controllers
     public class CategoryController : BaseController
     {
         private CategoryDAO dao = new CategoryDAO();
+
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var model = dao.ListAllPaging(searchString, page, pageSize);
             return View(model);
         }
+
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
+
         public ActionResult Edit(int id)
         {
             var Category = dao.GetById(id);
             return View(Category);
         }
+
         [HttpPost]
         public ActionResult Edit(Category Category)
         {
@@ -44,6 +44,7 @@ namespace ShopBike.Areas.Admin.Controllers
             }
             return View("Index");
         }
+
         [HttpPost]
         public ActionResult Create(Category Category)
         {
@@ -61,6 +62,7 @@ namespace ShopBike.Areas.Admin.Controllers
             }
             return View("Index");
         }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {

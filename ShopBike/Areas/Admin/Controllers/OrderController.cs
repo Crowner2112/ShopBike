@@ -2,9 +2,6 @@
 using Models.EF;
 using ShopPhone.Areas.Admin.Controllers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopBike.Areas.Admin.Controllers
@@ -12,11 +9,13 @@ namespace ShopBike.Areas.Admin.Controllers
     public class OrderController : BaseController
     {
         private OrderDAO dao = new OrderDAO();
+
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var model = dao.ListAllPaging(searchString, page, pageSize);
             return View(model);
         }
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -28,6 +27,7 @@ namespace ShopBike.Areas.Admin.Controllers
             ViewData["Status"] = selectList;
             return View();
         }
+
         public ActionResult Edit(int id)
         {
             var selectList = new SelectList(new[]{
@@ -39,6 +39,7 @@ namespace ShopBike.Areas.Admin.Controllers
             var Order = dao.GetById(id);
             return View(Order);
         }
+
         [HttpPost]
         public ActionResult Create(Order Order)
         {
@@ -57,6 +58,7 @@ namespace ShopBike.Areas.Admin.Controllers
             }
             return View("Index");
         }
+
         [HttpDelete]
         public ActionResult Delete(int id)
         {
@@ -71,6 +73,7 @@ namespace ShopBike.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
         }
+
         [HttpPost]
         public ActionResult Edit(Order Order)
         {

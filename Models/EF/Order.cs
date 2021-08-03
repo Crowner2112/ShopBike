@@ -1,10 +1,8 @@
 namespace Models.EF
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Order")]
     public partial class Order
@@ -28,6 +26,7 @@ namespace Models.EF
         public string Address { get; set; }
 
         public int Total { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? CreatedDate { get; set; }
 
