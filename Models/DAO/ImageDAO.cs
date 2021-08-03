@@ -38,7 +38,7 @@ namespace Models.DAO
                 db.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
@@ -74,6 +74,10 @@ namespace Models.DAO
             {
                 return false;
             }
+        }
+        public IEnumerable<Image> GetAll()
+        {
+            return db.Images.ToList();
         }
     }
 }

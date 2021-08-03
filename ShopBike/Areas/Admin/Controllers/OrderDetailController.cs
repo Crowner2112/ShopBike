@@ -12,6 +12,7 @@ namespace ShopBike.Areas.Admin.Controllers
     public class OrderDetailController : BaseController
     {
         private OrderDetailDAO dao = new OrderDetailDAO();
+        private ProductDAO proDao = new ProductDAO();
         private static int currentId;
         public ActionResult Index(int orderID, int page = 1, int pageSize = 10)
         {
@@ -22,6 +23,8 @@ namespace ShopBike.Areas.Admin.Controllers
         }
         public ActionResult Create()
         {
+            var selectList = new SelectList(proDao.GetAll(), "ID", "Name", 1);
+            ViewData["Products"] = selectList;
             ViewBag.OrderId = currentId;
             return View();
         }
