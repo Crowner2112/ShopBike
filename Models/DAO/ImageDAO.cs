@@ -48,6 +48,10 @@ namespace Models.DAO
         {
             return db.Images.Find(id);
         }
+        public List<Image> GetByProductId(int id)
+        {
+            return db.Images.Where(x=>x.ProductID == id).ToList();
+        }
 
         public IEnumerable<Image> ListAllPaging(string searchString, int page, int pageSize)
         {
