@@ -3,18 +3,18 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.DAO
 {
     public class OrderDetailDAO : IRepository<OrderDetail>
     {
-        ShopBikeDbContext db = null;
+        private ShopBikeDbContext db = null;
+
         public OrderDetailDAO()
         {
             db = new ShopBikeDbContext();
         }
+
         public bool Create(OrderDetail entity)
         {
             try
@@ -51,10 +51,12 @@ namespace Models.DAO
                 return false;
             }
         }
+
         public OrderDetail GetListODByODIdAndPDId(int orderId, int productId)
         {
             return db.OrderDetails.FirstOrDefault(x => x.OrderID == orderId && x.ProductID == productId);
         }
+
         public IEnumerable<OrderDetail> ListAllPaging(int orderId, int page, int pageSize)
         {
             IQueryable<OrderDetail> model = db.OrderDetails;

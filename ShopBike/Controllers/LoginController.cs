@@ -1,10 +1,6 @@
 ﻿using Models.DAO;
 using ShopPhone.Areas.Admin.Models;
 using ShopPhone.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopBike.Areas.Admin.Controllers
@@ -12,11 +8,13 @@ namespace ShopBike.Areas.Admin.Controllers
     public class LoginController : Controller
     {
         private AccountDAO dao = new AccountDAO();
+
         public ActionResult Index()
         {
             var model = new LoginModel();
             return View(model);
         }
+
         public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
@@ -54,6 +52,7 @@ namespace ShopBike.Areas.Admin.Controllers
             }
             return View("Index");
         }
+
         public ActionResult Logout()
         {
             Session.Abandon();

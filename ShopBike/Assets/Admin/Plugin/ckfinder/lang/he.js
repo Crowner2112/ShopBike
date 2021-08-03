@@ -43,7 +43,6 @@ CKFinder.lang['he'] =
 		rememberDecision: 'זכור החלטתי'
 	},
 
-
 	dir : 'rtl',
 	HelpLang : 'en',
 	LangCode : 'he',

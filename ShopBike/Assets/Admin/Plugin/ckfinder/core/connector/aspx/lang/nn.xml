@@ -3,7 +3,6 @@
 Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckfinder.com/license
 
-
 -->
 <messages>
 	<errorUnknown>Det var ikke mulig å utføre forespørselen. (Feil %1)</errorUnknown>

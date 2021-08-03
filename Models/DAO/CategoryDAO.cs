@@ -3,14 +3,13 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.DAO
 {
     public class CategoryDAO : IRepository<Category>
     {
-        ShopBikeDbContext db = null;
+        private ShopBikeDbContext db = null;
+
         public CategoryDAO()
         {
             db = new ShopBikeDbContext();
@@ -63,6 +62,7 @@ namespace Models.DAO
         {
             return db.Categories.ToList();
         }
+
         public bool Update(Category entity)
         {
             try

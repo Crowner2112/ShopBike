@@ -3,18 +3,18 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.DAO
 {
     public class AccountDAO : IRepository<Account>
     {
-        ShopBikeDbContext db = null;
+        private ShopBikeDbContext db = null;
+
         public AccountDAO()
         {
             db = new ShopBikeDbContext();
         }
+
         public bool Create(Account entity)
         {
             try
@@ -77,6 +77,7 @@ namespace Models.DAO
                 return false;
             }
         }
+
         public int Login(string email, string passWord)
         {
             var result = db.Accounts.SingleOrDefault(x => x.Email == email);
@@ -97,6 +98,7 @@ namespace Models.DAO
                 }
             }
         }
+
         public Account GetByEmail(string email)
         {
             return db.Accounts.SingleOrDefault(x => x.Email == email);

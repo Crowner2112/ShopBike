@@ -1,9 +1,7 @@
 ﻿using Models.DAO;
 using Models.EF;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopBike.Controllers
@@ -13,6 +11,7 @@ namespace ShopBike.Controllers
         private CategoryDAO categoryDao = new CategoryDAO();
         private ProductDAO productDao = new ProductDAO();
         private ImageDAO imageDao = new ImageDAO();
+
         public ActionResult Index()
         {
             var categories = categoryDao.GetAll();

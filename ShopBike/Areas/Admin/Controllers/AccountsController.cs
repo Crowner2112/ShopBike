@@ -4,24 +4,21 @@ using ShopPhone.Areas.Admin.Controllers;
 using ShopPhone.Common;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
-
 
 namespace ShopBike.Areas.Admin.Controllers
 {
     public class AccountsController : BaseController
     {
         private AccountDAO dao = new AccountDAO();
+
         // GET: Admin/Accounts
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var model = dao.ListAllPaging(searchString, page, pageSize);
             return View(model);
         }
+
         public ActionResult Create()
         {
             return View();
@@ -96,6 +93,7 @@ namespace ShopBike.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Accounts");
             }
         }
+
         public static IEnumerable<SelectListItem> GetRole()
         {
             var items = new List<SelectListItem>

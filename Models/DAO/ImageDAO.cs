@@ -3,14 +3,13 @@ using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Models.DAO
 {
     public class ImageDAO : IRepository<Image>
     {
-        ShopBikeDbContext db = null;
+        private ShopBikeDbContext db = null;
+
         public ImageDAO()
         {
             db = new ShopBikeDbContext();
@@ -48,9 +47,10 @@ namespace Models.DAO
         {
             return db.Images.Find(id);
         }
+
         public List<Image> GetByProductId(int id)
         {
-            return db.Images.Where(x=>x.ProductID == id).ToList();
+            return db.Images.Where(x => x.ProductID == id).ToList();
         }
 
         public IEnumerable<Image> ListAllPaging(string searchString, int page, int pageSize)
@@ -60,7 +60,7 @@ namespace Models.DAO
             {
                 model = model.Where(x => x.ProductID == Int32.Parse(searchString));
             }
-            return model.OrderBy(x => x.ID).ToPagedList(page,pageSize);
+            return model.OrderBy(x => x.ID).ToPagedList(page, pageSize);
         }
 
         public bool Update(Image entity)
@@ -79,6 +79,7 @@ namespace Models.DAO
                 return false;
             }
         }
+
         public IEnumerable<Image> GetAll()
         {
             return db.Images.ToList();
