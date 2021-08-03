@@ -1,392 +1,75 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var displayCategory = ViewData["CutListCategory"] as List<Models.EF.Category>;
+    var images = ViewData["Images"] as List<Models.EF.Image>;
 }
 
-
-<p class="breadcrumb">
-    <span>
+<div class="overlay-content">
+    <p class="breadcrumb">
         <span>
-            <a href="https://yamaha-motor.com.vn/">Trang chủ</a> » <span class="breadcrumb_last" aria-current="page">Xe</span>
+            <span>
+                <a href="/Home">Trang chủ</a> » <span class="breadcrumb_last" aria-current="page">Xe</span>
+            </span>
         </span>
-    </span>
-</p>
-<div class="overlay-title">
-    <h1>sản phẩm</h1>
-    <p class="seo-text" style="font-size:18px;text-align: justify;">
-        Các dòng xe máy Yamaha là gợi ý
-        không nên bỏ qua khi bạn muốn mua xe máy mới, với rất nhiều mẫu sản phẩm đa dạng ở các dòng xe
-        số, xe tay ga, xe moto (xe thể thao). Bên cạnh thiết kế trẻ trung, thời thượng, xe máy Yamaha
-        được trang bị các tính năng hiện đại cùng khả năng tiết kiệm nhiên liệu tuyệt vời.
     </p>
-</div>
-<div class="product">
-    <div class="product-video">
-        <div class="page-slide">
-            <div class="page-slide__item">
-                <div class="page-slide__video">
-                    <div class="page-slide__video-item" id="player"
-                         style="background: url(https://yamaha-motor.com.vn/wp/wp-content/themes/yamaha/assets/img/youtube-thumb-downloaded/U3Nqx7BbRqs.jpg) center no-repeat; background-size: cover;"
-                         data-video="U3Nqx7BbRqs"></div>
+    <div class="overlay-title">
+        <h1>sản phẩm</h1>
+        <p class="seo-text" style="font-size:18px;text-align: justify;">
+            Các dòng xe máy Yamaha là gợi ý
+            không nên bỏ qua khi bạn muốn mua xe máy mới, với rất nhiều mẫu sản phẩm đa dạng ở các dòng xe
+            số, xe tay ga, xe moto (xe thể thao). Bên cạnh thiết kế trẻ trung, thời thượng, xe máy Yamaha
+            được trang bị các tính năng hiện đại cùng khả năng tiết kiệm nhiên liệu tuyệt vời.
+        </p>
+    </div>
+    <div class="product">
+        <div class="product-video">
+            <div class="page-slide">
+                <div class="page-slide__item">
+                    <div class="page-slide__video">
+                        <div class="page-slide__video-item" id="player"
+                             style="background-image: url('../../Assets/Client/images/U3Nqx7BbRqs.jpg') center no-repeat; background-size: cover; "
+                             data-video="U3Nqx7BbRqs"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="product-list">
-        <div class="product-row">
-            <div class="product-col">
-                <div class="product-list__cat motorbike scooter">
-                    <div class="product-list__cat-name">
-                        <a href="https://yamaha-motor.com.vn/xe/loai-xe/xe-so/">
-                            <h2>Xe số</h2>
-                        </a>
-                    </div>
-                    <div class="product-list__row">
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Exciter</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/12/Exciter-155-GP-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/12/Exciter-155-GP-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/12/Exciter-155-GP-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/12/Exciter-155-GP-004-150x120.png.webp"
-                                         alt="Xe số">
+        <div class="product-list">
+            <div class="product-row">
+                @foreach (var category in displayCategory)
+                {
+                    <div class="product-col">
+                        <div class="product-list__cat motorbike scooter">
+                            <div class="product-list__cat-name">
+                                <a href="#">
+                                    <h2>@category.Name</h2>
                                 </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
                             </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Jupiter</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Jupiter-GP-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Jupiter-GP-300x240.png"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Jupiter-GP-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/05/Jupiter-GP-150x120.png.webp"
-                                         alt="Xe số">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">
-                                        Sirius
-                                        FI
-                                    </a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2017/05/Sirius-Mat-Black-RC-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2017/05/Sirius-Mat-Black-RC-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2017/05/Sirius-Mat-Black-RC-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2017/05/Sirius-Mat-Black-RC-004-150x120.png.webp"
-                                         alt="Xe số">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Sirius</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/05/902cbf7c3925180d16ad89df59f9d225-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/05/902cbf7c3925180d16ad89df59f9d225-300x240.png"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/05/902cbf7c3925180d16ad89df59f9d225-150x150.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/05/902cbf7c3925180d16ad89df59f9d225-150x150.png.webp"
-                                         alt="Xe số">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
+                            <div class="product-list__row">
+                                @foreach (var image in images)
+                                {
+                                    if (image.Product.CategoryID == category.ID)
+                                    {
+                                        <div class="product-list__col">
+                                            <div class="product-list__item">
+                                                <div class="product-list__item-bg"></div>
+                                                <h3 class="product-list__item-name">
+                                                    <a href="/Product/Index/@image.ProductID">@image.Product.Name</a>
+                                                </h3>
+                                                <a href="/Product/Index/@image.ProductID" class="product-list__item-link">
+                                                    <img class="product-list__item-img notLazy" src="@image.Link" alt="@image.Product.Name">
+                                                </a>
+                                                <div class="product-list__item-btn">
+                                                    <a href="/Product/Index/@image.ProductID" class="btn btn-main shine">Xem thêm</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="product-col">
-                <div class="product-list__cat xe-tay-ga scooter">
-                    <div class="product-list__cat-name">
-                        <a href="./detailsProduct.html">
-                            <h2>Xe tay ga</h2>
-                        </a>
-                    </div>
-                    <div class="product-list__row">
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Grande</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/05/Grande-Pearl-White-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/05/Grande-Pearl-White-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/05/Grande-Pearl-White-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/05/Grande-Pearl-White-004-150x120.png.webp"
-                                         alt="Xe tay ga">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Latte</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Latte-Yamaha-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Latte-Yamaha-300x240.png"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Latte-Yamaha-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/05/Latte-Yamaha-150x120.png.webp"
-                                         alt="Xe tay ga">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Janus</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2021/06/Janus-White-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2021/06/Janus-White-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2021/06/Janus-White-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2021/06/Janus-White-004-150x120.png.webp"
-                                         alt="Xe tay ga">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">NVX</a>
-                                </h3>
-                                <a href="./detailsProduct.html"
-                                   class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/10/X30-Mat-Black-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/10/X30-Mat-Black-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/10/X30-Mat-Black-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/10/X30-Mat-Black-004-150x120.png.webp"
-                                         alt="Xe tay ga">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Freego</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/04/FreeGo-S-Mat-Blue-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/04/FreeGo-S-Mat-Blue-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/04/FreeGo-S-Mat-Blue-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/04/FreeGo-S-Mat-Blue-004-150x120.png.webp"
-                                         alt="Xe tay ga">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">Acruzo</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Aruzo-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Aruzo-300x240.png"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/Aruzo-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/05/Aruzo-150x120.png.webp"
-                                         alt="Xe tay ga">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-col">
-                <div class="product-list__cat sportbike scooter">
-                    <div class="product-list__cat-name">
-                        <a href="https://yamaha-motor.com.vn/xe/loai-xe/xe-the-thao/">
-                            <h2>Xe thể thao</h2>
-                        </a>
-                    </div>
-                    <div class="product-list__row">
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">YZF-R3</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/YZF-R3-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/YZF-R3-300x240.png"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/YZF-R3-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/05/YZF-R3-150x120.png.webp"
-                                         alt="Xe thể thao">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">MT-03</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2017/07/2018_MT-03-ABS-MTN320-A_MLNM4_TWN-_1-1-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2017/07/2018_MT-03-ABS-MTN320-A_MLNM4_TWN-_1-1-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2017/07/2018_MT-03-ABS-MTN320-A_MLNM4_TWN-_1-1-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2017/07/2018_MT-03-ABS-MTN320-A_MLNM4_TWN-_1-1-150x120.png.webp"
-                                         alt="Xe thể thao">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">YZF-R15</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/10/R15-Monster-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/10/R15-Monster-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/10/R15-Monster-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/10/R15-Monster-004-150x120.png.webp"
-                                         alt="Xe thể thao">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">MT-15</a>
-                                </h3> <a href="./detailsProduct.html"
-                                         class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/09/MT15-GP-004-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/09/MT15-GP-004-300x240.png.webp"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2019/09/MT15-GP-004-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2019/09/MT15-GP-004-150x120.png.webp"
-                                         alt="Xe thể thao">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-list__col">
-                            <div class="product-list__item">
-                                <div class="product-list__item-bg"></div>
-                                <h3 class="product-list__item-name">
-                                    <a href="./detailsProduct.html">TFX</a>
-                                </h3>
-                                <a href="./detailsProduct.html"
-                                   class="product-list__item-link">
-                                    <img class="product-list__item-img notLazy"
-                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                         data-pc="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/TFX150-300x240.png"
-                                         data-pcwebp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/TFX150-300x240.png"
-                                         data-sp="https://yamaha-motor.com.vn/wp/wp-content/uploads/2020/05/TFX150-150x120.png"
-                                         data-spwebp="https://yamaha-motor.com.vn/wp/wp-content/webp-express/webp-images/doc-root/wp/wp-content/uploads/2020/05/TFX150-150x120.png.webp"
-                                         alt="Xe thể thao">
-                                </a>
-                                <div class="product-list__item-btn">
-                                    <a href="./detailsProduct.html"
-                                       class="btn btn-main shine">Xem thêm</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>

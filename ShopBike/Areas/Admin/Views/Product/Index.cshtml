@@ -30,7 +30,7 @@
         <td>@item.Category.Name</td>
         <td><img src="@listImage.Where(x => x.ProductID == item.ID && x.MainPic == true).Select(x => x.Link).FirstOrDefault()" /></td>
         <td>@item.Name</td>
-        <td>@item.Price</td>
+        <td>@Html.Raw(@String.Format("{0:#,##0}", @item.Price))đ</td>
         <td>@item.Quantity</td>
         <td>@item.Description</td>
         <td class="right__iconTable"><a href="/Admin/Product/Edit/@item.ID">Sửa</a></td>

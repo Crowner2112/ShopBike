@@ -24,6 +24,7 @@ namespace Models.EF
         [StringLength(30)]
         public string Name { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         public int? Price { get; set; }
 
         public int? Quantity { get; set; }

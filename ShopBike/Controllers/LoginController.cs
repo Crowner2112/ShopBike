@@ -31,7 +31,8 @@ namespace ShopBike.Areas.Admin.Controllers
                     userSession.Email = user.Email;
                     Session.Add(CommonConstants.EMPLOYEE_SESSION, userSession);
                     Session["Account"] = user.FullName;
-                    return RedirectToAction("Index", "Home");
+                    return Content("<script>window.location = '/Admin/Home';</script>");
+                    //return RedirectToAction("Index", "Home");
                 }
                 else if (result == 0)
                 {

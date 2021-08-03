@@ -167,11 +167,12 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\ImageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderDetailController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
-    <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\EmployeeLogin.cs" />
@@ -210,7 +211,8 @@
     <Content Include="Assets\Admin\assets\logo.svg" />
     <Content Include="Assets\Admin\assets\profile.jpg" />
     <Content Include="Assets\Admin\assets\profile1.jpg" />
-    <Content Include="Assets\Admin\css\login.css" />
+    <Content Include="Assets\Client\css\detail.css" />
+    <Content Include="Assets\Client\css\login.css" />
     <Content Include="Assets\Admin\css\main.css" />
     <Content Include="Assets\Admin\css\styles.css" />
     <Content Include="Assets\Admin\ellipse1.svg" />
@@ -238,7 +240,10 @@
     <Content Include="Assets\Admin\image\slide2.jpg" />
     <Content Include="Assets\Admin\image\slide3.jpg" />
     <Content Include="Assets\Admin\js\main.js" />
-    <Content Include="Assets\Admin\js\mainLogin.js" />
+    <Content Include="Assets\Client\css\product.css" />
+    <Content Include="Assets\Client\images\favicon.ico" />
+    <Content Include="Assets\Client\images\U3Nqx7BbRqs.jpg" />
+    <Content Include="Assets\Client\js\mainLogin.js" />
     <Content Include="Assets\Admin\logo.svg" />
     <Content Include="Assets\Admin\Plugin\ckeditor\adapters\jquery.js" />
     <Content Include="Assets\Admin\Plugin\ckeditor\CHANGES.html" />
@@ -931,12 +936,12 @@
     <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetail\Create.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetail\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
+    <Content Include="Views\Register\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -977,10 +982,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\CategoriesDetail.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
-    <Content Include="Views\Shared\_Nav.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

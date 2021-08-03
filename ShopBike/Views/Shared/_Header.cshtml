@@ -1,4 +1,8 @@
-﻿<div class="header-row">
+﻿@{ 
+    var listCategory = Session["Categories"] as List<Models.EF.Category>;
+}
+
+<div class="header-row">
     <div class="header-logo">
         <a href="/">
             <picture>
@@ -13,24 +17,12 @@
     <nav class="navigation">
         <div class="navigation-top">
             <ul class="navigation-top__list">
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/gioi-thieu/">về yamaha</a>
-                </li>
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/tin-tuc/">xe số</a>
-                </li>
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/tuyen-dung-yamaha/">xe con</a>
-                </li>
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/bang-gia-xe-may/">xe ga</a>
-                </li>
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/ban-hang-doanh-nghiep/">xe sport</a>
-                </li>
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/lai-xe-an-toan/">xe touring</a>
-                </li>
+                @foreach (var category in listCategory)
+                {
+                    <li class="navigation-top__item top-search--hide" data-hover="true">
+                        <a class="navigation-top__link" href="#">@category.Name</a>
+                    </li>
+                }
                 <li class="navigation-top__item top-search--input">
                     <div class="navigation-top__search hover">
                         <form class="top-search" method="get" action="/">
@@ -51,9 +43,18 @@
                         </form>
                     </div>
                 </li>
-                <li class="navigation-top__item top-search--hide" data-hover="true">
-                    <a class="navigation-top__link" href="/Admin/Login">Đăng nhập</a>
-                </li>
+                @if (Session["username"] != null)
+                {
+                    <li class="navigation-top__item top-search--hide" data-hover="true">
+                        <a class="navigation-top__link" href="/Login">Xin chào: @Session["username"]</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="navigation-top__item top-search--hide" data-hover="true">
+                        <a class="navigation-top__link" href="/Login">Đăng nhập</a>
+                    </li>
+                }
             </ul>
         </div>
     </nav>
