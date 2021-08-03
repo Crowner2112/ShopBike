@@ -13,8 +13,10 @@ namespace ShopBike.Areas.Admin.Controllers
     {
         private ProductDAO dao = new ProductDAO();
         private readonly CategoryDAO cateDao = new CategoryDAO();
+        private readonly ImageDAO imageDao = new ImageDAO();
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
+            ViewData["Image"] = imageDao.GetAll();
             var model = dao.ListAllPaging(searchString, page, pageSize);
             return View(model);
         }
@@ -27,6 +29,8 @@ namespace ShopBike.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id)
         {
+            var selectList = new SelectList(cateDao.GetAll(), "ID", "Name", 1);
+            ViewData["Categories"] = selectList;
             var Product = dao.GetById(id);
             return View(Product);
         }

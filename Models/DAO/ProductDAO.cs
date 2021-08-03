@@ -76,5 +76,9 @@ namespace Models.DAO
                 return false;
             }
         }
+        public IEnumerable<Product> GetAll()
+        {
+            return db.Products.ToList();
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace ShopBike.Areas.Admin.Controllers
     public class ImageController : BaseController
     {
         private ImageDAO dao = new ImageDAO();
+        private ProductDAO proDao = new ProductDAO();
         public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
             var model = dao.ListAllPaging(searchString, page, pageSize);
@@ -20,10 +21,14 @@ namespace ShopBike.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var selectList = new SelectList(proDao.GetAll(), "ID", "Name", 1);
+            ViewData["Products"] = selectList;
             return View();
         }
         public ActionResult Edit(int id)
         {
+            var selectList = new SelectList(proDao.GetAll(), "ID", "Name", 1);
+            ViewData["Products"] = selectList;
             var Image = new ImageDAO().GetById(id);
             return View(Image);
         }
@@ -45,9 +50,10 @@ namespace ShopBike.Areas.Admin.Controllers
             return View("Index");
         }
         [HttpDelete]
-        public ActionResult Delete(Image image)
+        public ActionResult Delete(int id)
         {
-            dao.Delete(image);
+            var item = dao.GetById(id);
+            dao.Delete(item);
             return RedirectToAction("Index");
         }
         [HttpPost]

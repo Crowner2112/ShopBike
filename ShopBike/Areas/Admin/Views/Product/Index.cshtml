@@ -1,7 +1,9 @@
 ﻿@model PagedList.IPagedList<Models.EF.Product>
 @using PagedList.Mvc
 @{ ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; }
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var listImage = ViewData["Image"] as List<Models.EF.Image>;
+}
 
 <div class="right__title">Danh sách sản phẩm</div>
 <div class="right__table">
@@ -11,6 +13,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Danh mục</th>
+                    <th>Ảnh</th>
                     <th>Tên</th>
                     <th>Giá</th>
                     <th>Số lượng còn</th>
@@ -25,6 +28,7 @@
     <tr id="row_@item.ID">
         <td>@item.ID</td>
         <td>@item.Category.Name</td>
+        <td><img src="@listImage.Where(x => x.ProductID == item.ID && x.MainPic == true).Select(x => x.Link).FirstOrDefault()" /></td>
         <td>@item.Name</td>
         <td>@item.Price</td>
         <td>@item.Quantity</td>

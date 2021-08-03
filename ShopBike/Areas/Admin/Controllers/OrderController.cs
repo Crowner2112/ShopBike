@@ -20,10 +20,22 @@ namespace ShopBike.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            var selectList = new SelectList(new[]{
+                new {ID = 0, Name = "Đã hủy"},
+                new {ID = 1, Name = "Đang xử lý" },
+                new{ID = 2, Name = "Đã thanh toán"}
+            }, "ID", "Name", 1);
+            ViewData["Status"] = selectList;
             return View();
         }
         public ActionResult Edit(int id)
         {
+            var selectList = new SelectList(new[]{
+                new {ID = 0, Name = "Đã hủy"},
+                new {ID = 1, Name = "Đang xử lý" },
+                new{ID = 2, Name = "Đã thanh toán"}
+            }, "ID", "Name", 1);
+            ViewData["Status"] = selectList;
             var Order = dao.GetById(id);
             return View(Order);
         }
